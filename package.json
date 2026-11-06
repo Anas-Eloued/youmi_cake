@@ -1,0 +1,19 @@
+{
+  "name": "kairox-demo-youmi-cake",
+  "version": "1.0.0",
+  "description": "Démo de détection d'opportunités commerciales KAIROX pour Youmi Cake Casablanca",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "open": "cmd /c start http://localhost:3000"
+  },
+  "keywords": [
+    "kairox",
+    "commercial-intelligence",
+    "youmi-cake",
+    "casablanca"
+  ],
+  "author": "KAIROX",
+  "license": "ISC"
+}
+

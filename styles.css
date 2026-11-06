@@ -1,0 +1,179 @@
+/* ==========================================================================
+   KAIROX Intelligence Commerciale x Youmi Cake Casablanca
+   Design System & Modern Dashboard Stylesheet
+   ========================================================================== */
+
+:root {
+  --primary-bg: #0b0f19;
+  --surface-card: #111827;
+  --surface-card-hover: #1f2937;
+  --surface-border: #374151;
+  --surface-border-subtle: #1f293d;
+  
+  --kairox-blue: #3b82f6;
+  --kairox-blue-glow: rgba(59, 130, 246, 0.25);
+  --youmi-gold: #f59e0b;
+  --youmi-rose: #f43f5e;
+  
+  --badge-simulated-bg: rgba(245, 158, 11, 0.12);
+  --badge-simulated-text: #f59e0b;
+  --badge-simulated-border: rgba(245, 158, 11, 0.35);
+
+  --badge-real-bg: rgba(16, 185, 129, 0.12);
+  --badge-real-text: #10b981;
+  --badge-real-border: rgba(16, 185, 129, 0.3);
+
+  --badge-urgent-bg: rgba(239, 68, 68, 0.15);
+  --badge-urgent-text: #ef4444;
+
+  --badge-seasonal-bg: rgba(139, 92, 246, 0.15);
+  --badge-seasonal-text: #a78bfa;
+
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--primary-bg);
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.06) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--surface-border-subtle);
+}
+
+.glass-modal {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Badges */
+.badge-simulated {
+  background: var(--badge-simulated-bg);
+  color: var(--badge-simulated-text);
+  border: 1px dashed var(--badge-simulated-border);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  animation: pulse-border 3s infinite ease-in-out;
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(245, 158, 11, 0.35); }
+  50% { border-color: rgba(245, 158, 11, 0.7); }
+}
+
+.badge-verified-entity {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.badge-contact-confirm {
+  background: rgba(217, 119, 6, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+}
+
+.badge-urgent {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-seasonal {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.badge-medium {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Card hover glow */
+.opportunity-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.opportunity-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(59, 130, 246, 0.15);
+}
+
+.opportunity-card.card-simulated:hover {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(245, 158, 11, 0.18);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Toast Notification Animation */
+#copyToast {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(20px);
+}
+#copyToast.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+/* Drawer Transitions */
+#actionDrawer {
+  transition: visibility 0.3s ease;
+}
+#drawerContent {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#drawerBackdrop {
+  transition: opacity 0.3s ease;
+}
+
+/* Timeline Indicator */
+.timeline-active-glow {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+}
+
